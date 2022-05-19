@@ -1,3 +1,5 @@
+import pygame
+
 from Organism import Organism
 
 
@@ -29,7 +31,8 @@ class Cell(Organism):
         pass
 
     def draw(self, screen):
-        pass
+        pygame.draw.circle(screen,self.primaryColor,self.position,self.size,width=0)
+        pygame.draw.circle(screen, self.secondaryColor,self.position,self.size,width=3)
 
     def reproduce(self, organismList):
         pass

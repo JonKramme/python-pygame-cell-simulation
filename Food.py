@@ -1,3 +1,5 @@
+import pygame
+
 from Organism import Organism
 
 
@@ -10,7 +12,10 @@ class Food(Organism):
         pass
 
     def draw(self, screen):
-        pass
+        points = ((self.position[0]+1*self.size, self.position[1]), (self.position[0], self.position[1]+1*self.size),
+                  (self.position[0]-1*self.size, self.position[1]), (self.position[0], self.position[1]-1*self.size))
+        pygame.draw.polygon(screen, self.primaryColor, points)
+        pygame.draw.lines(screen, self.secondaryColor, True, points,3)
 
     def reproduce(self, organismList):
         pass
