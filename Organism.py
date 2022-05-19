@@ -1,11 +1,12 @@
 from abc import ABC, abstractmethod
 
+import numpy as np
 import pygame
 
 
 class Organism(ABC):
     def __init__(self, position, nutrients, size, growthThreshold, resistance, primaryColor, secondaryColor):
-        self.position = position
+        self.position = np.array(position, dtype='float64')
         self.nutrients = nutrients
         self.size = size
         self.growthThreshold = growthThreshold
@@ -19,7 +20,7 @@ class Organism(ABC):
 
     @abstractmethod
     def draw(self, screen):
-        pygame.draw.circle(screen, (255, 0, 220), self.position, self.size)
+        pygame.draw.circle(screen, (255, 0, 220), self.position.dtype('int64'), self.size)
 
 
     @abstractmethod
