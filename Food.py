@@ -8,7 +8,7 @@ class Food(Organism):
     def __init__(self, position, nutrients, size, growthThreshold, resistance, primaryColor, secondaryColor):
         super().__init__(position, nutrients, size, growthThreshold, resistance, primaryColor, secondaryColor)
 
-    def update(self):
+    def update(self,screen,cells, height, width):
         pass
 
     def draw(self, screen):

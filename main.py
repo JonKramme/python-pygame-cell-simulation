@@ -6,7 +6,6 @@ from Food import Food
 
 BLACK = (0, 0, 0)
 cells = list()
-food = list()
 
 
 def handle_events():
@@ -19,6 +18,8 @@ def handle_events():
                 # toggle display
                 pass
 
+def random_color():
+    return [random.randint(0,255) for x in range(3)]
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
@@ -28,13 +29,16 @@ if __name__ == '__main__':
 
     screen = pygame.display.set_mode(size)
     # create Cells etc.
+
+    cells.append(Cell((random.randrange(boundary[0], boundary[2]), random.randrange(boundary[1], boundary[3])),
+                       (182, 255, 0), (38, 127, 0)))
     for x in range(50):
         cells.append(Cell((random.randrange(boundary[0], boundary[2]), random.randrange(boundary[1], boundary[3])),
-                          200.0, 10.0, 500, 1, (182, 255, 0), (38, 127, 0), 0, 0.20, (0, 0), 2, 2))
+                          random_color(), random_color()))
 
     for x in range(5):
-        f = Food((random.randrange(boundary[0], boundary[2]), random.randrange(boundary[1], boundary[3])),
-                  200.0, 5.0, 500, 1, (0, 148, 255), (0, 74, 127))
+        #cells.append(Food((random.randrange(boundary[0], boundary[2]), random.randrange(boundary[1], boundary[3]))))
+        pass
 
     while True:
         handle_events()
@@ -42,10 +46,7 @@ if __name__ == '__main__':
         # simulation logic / Cell Movment
         screen.fill(BLACK)
         for c in cells:
-            c.move(cells, height, width)
-            c.draw(screen)
+            c.update(screen, cells, height, width)
 
-        for f in food:
-            f.draw(screen)
         # draw GUI
         pygame.display.flip()

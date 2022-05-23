@@ -15,7 +15,7 @@ class Organism(ABC):
         self.secondaryColor = secondaryColor
 
     @abstractmethod
-    def update(self):
+    def update(self, screen, cells, height, width):
         pass
 
     @abstractmethod
