@@ -14,18 +14,18 @@ def generateID():
 
 
 class Cell(Organism):
-    def __init__(self, position, primaryColor, secondaryColor, nutrients=200, size=2, growthThreshold=25, resistance=random.randint(0, 10),
-                 generation=0, speed=0.5, direction=(0, 0), consumptionSpeed=random.randint(5, 10),
-                 requiredNutrientsPerCycle=50, reproductionSizeThreshold=random.randint(15, 30),
-                 maxSpeed=(1, 1)):
-        super().__init__(position, nutrients, size, growthThreshold, resistance, primaryColor, secondaryColor)
+    def __init__(self, position, primaryColor, secondaryColor, nutrients=200, size=2, resistance=random.randint(0, 10),
+                 generation=0, speed=0.5, direction=(0, 0), growthThreshold=random.randint(15, 30),
+                 consumptionSpeed=random.randint(5, 10), requiredNutrientsPerCycle=50,
+                 reproductionSizeThreshold=random.randint(15, 30), maxSpeed=(1, 1)):
+        super().__init__(position, primaryColor, secondaryColor, nutrients, size, resistance, reproductionSizeThreshold)
         self.id = next(generateID())
         self.generation = generation
         self.speed = speed
         self.direction = np.array(direction, dtype='float64')
+        self.growthThreshold = growthThreshold
         self.consumptionAmount = consumptionSpeed
         self.requiredNutrientsPerCycle = requiredNutrientsPerCycle
-        self.reproductionSizeThreshold = reproductionSizeThreshold
         self.maxSpeed = maxSpeed
         self.age = 0
 

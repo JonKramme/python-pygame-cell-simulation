@@ -37,7 +37,8 @@ if __name__ == '__main__':
                           random_color(), random_color()))
 
     for x in range(5):
-        #cells.append(Food((random.randrange(boundary[0], boundary[2]), random.randrange(boundary[1], boundary[3]))))
+        cells.append(Food((random.randrange(boundary[0], boundary[2]), random.randrange(boundary[1], boundary[3])),
+                          (182, 255, 0), (38, 127, 0)))
         pass
 
     while True:
