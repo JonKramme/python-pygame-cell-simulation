@@ -1,8 +1,8 @@
 import random
 import sys, pygame
 
-from Cell import Cell
-from Food import Food
+from .Cell import Cell
+from .Food import Food
 
 BLACK = (0, 0, 0)
 cells = list()

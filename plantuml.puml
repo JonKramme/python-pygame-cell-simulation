@@ -1,0 +1,31 @@
+@startuml
+class Cell.Cell {
+  id: None
+  generation: None
+  speed: None
+  direction: None
+  growthThreshold: None
+  consumptionAmount: None
+  requiredNutrientsPerCycle: None
+  maxSpeed: None
+  age: None
+}
+abstract class Organism.Organism {
+  position: None
+  nutrients: None
+  size: None
+  resistance: None
+  primaryColor: None
+  secondaryColor: None
+  reproductionSizeThreshold: None
+}
+class Food.Food {
+  baseGrowthAmount: None
+  growthTimer: None
+  counter: None
+  canGrow: None
+}
+
+Organism.Organism <|-- Cell.Cell
+Organism.Organism <|-- Food.Food
+@enduml

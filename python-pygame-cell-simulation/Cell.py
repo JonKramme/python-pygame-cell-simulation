@@ -3,7 +3,7 @@ import random
 import numpy as np
 import pygame
 
-from Organism import Organism
+from .Organism import Organism
 
 
 def generateID():
