@@ -5,17 +5,21 @@ import pygame
 
 
 class Organism(ABC):
-    def __init__(self, position, nutrients, size, growthThreshold, resistance, primaryColor, secondaryColor):
+    def __init__(self, position, primaryColor, secondaryColor, nutrients, size, resistance, reproductionSizeThreshold):
         self.position = np.array(position, dtype='float64')
         self.nutrients = nutrients
         self.size = size
-        self.growthThreshold = growthThreshold
         self.resistance = resistance
         self.primaryColor = primaryColor
         self.secondaryColor = secondaryColor
+        self.reproductionSizeThreshold = reproductionSizeThreshold
 
     @abstractmethod
     def update(self, screen, cells, height, width):
+        pass
+
+    @abstractmethod
+    def grow(self):
         pass
 
     @abstractmethod
